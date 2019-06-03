@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5457770c45508469546f3f44dbe54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportPoint: {fileID: 38362701492259420}
 --- !u!1 &2942553819118417718
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,11 +116,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 837a6f4bcee0f384eb93ec6f24a79d53,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 837a6f4bcee0f384eb93ec6f24a79d53,
         type: 3}
@@ -193,11 +189,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 837a6f4bcee0f384eb93ec6f24a79d53,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 2822da47acf771242ac8a74d23e0df60, type: 2}
-    - target: {fileID: -1504981713932161579, guid: 837a6f4bcee0f384eb93ec6f24a79d53,
-        type: 3}
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
@@ -211,8 +202,12 @@ PrefabInstance:
       propertyPath: m_ReflectionProbeUsage
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -6057140222963153312, guid: 837a6f4bcee0f384eb93ec6f24a79d53, type: 3}
+    - target: {fileID: -1504981713932161579, guid: 837a6f4bcee0f384eb93ec6f24a79d53,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2822da47acf771242ac8a74d23e0df60, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 837a6f4bcee0f384eb93ec6f24a79d53, type: 3}
 --- !u!4 &5970483587357634631 stripped
 Transform:

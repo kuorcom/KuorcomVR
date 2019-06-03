@@ -28,9 +28,9 @@ public class TeleportElement : MonoBehaviour
 
     public IEnumerator TeleportCoroutine()
     {
-        yield return StartCoroutine(fader.FaderCoroutine(false));
-        TeleportViewer();
         yield return StartCoroutine(fader.FaderCoroutine(true));
+        TeleportViewer();
+        yield return StartCoroutine(fader.FaderCoroutine(false));
     }
 
     #endregion

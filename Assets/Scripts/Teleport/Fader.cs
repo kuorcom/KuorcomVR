@@ -12,6 +12,7 @@ public class Fader : MonoBehaviour
     void Start()
     {
         faderMaterial = GetComponent<MeshRenderer>().material;
+        FadeIn();
     }
 
     public void FadeOut()
@@ -34,7 +35,6 @@ public class Fader : MonoBehaviour
             {
                 faderMaterial.SetColor("_BaseColor", Color.Lerp(initColor, fadeOutColor, timeHelper));
                 timeHelper += timeAdder;
-                Debug.Log(timeHelper);
                 yield return new WaitForSeconds(timeAdder);
             }
         }
@@ -44,7 +44,6 @@ public class Fader : MonoBehaviour
             {
                 faderMaterial.SetColor("_BaseColor", Color.Lerp(initColor, fadeInColor, timeHelper));
                 timeHelper += timeAdder;
-                Debug.Log(timeHelper);
                 yield return new WaitForSeconds(timeAdder);
             }
         }

@@ -15,6 +15,7 @@ public class ControllerPointer : MonoBehaviour
     public Gradient teleportGradient;
     public float teleportRayMaxDistance = 10.0f;
     public bool canTeleport = true, isTeleport = false;
+    TeleportElement teleportElement;
     RaycastHit teleportHit;
 
     [Header("Interaction")]
@@ -22,7 +23,13 @@ public class ControllerPointer : MonoBehaviour
     public Gradient interactionGradient;
     public float interactionRayMaxDistance = 10.0f;
     public bool canInteract = true, isInteract = false;
+    InteractionElement interactionElement;
     RaycastHit interactionHit;
+
+    private void Awake()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +48,19 @@ public class ControllerPointer : MonoBehaviour
     {
         if(isTeleport)
         {
-
+            if(Input.GetMouseButtonDown(0))
+            {
+                teleportElement = teleportHit.transform.GetComponent<TeleportElement>();
+                teleportElement.Teleport();
+            }
         }
         else if(isInteract)
         {
-
+            if (Input.GetMouseButtonDown(0))
+            {
+                interactionElement = interactionHit.transform.GetComponent<InteractionElement>();
+                interactionElement.Interaction1();
+            }
         }
         else
         {
@@ -107,7 +122,7 @@ public class ControllerPointer : MonoBehaviour
 
     public void ResetLine()
     {
-        PositionLinePoints(pointerOrigin.position);
+        PositionLinePoints(pointerOrigin.position + pointerOrigin.forward);
         ColorLine(initGradient);
     }
 
