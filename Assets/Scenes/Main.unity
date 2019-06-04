@@ -5,11 +5,12 @@ OcclusionCullingSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_OcclusionBakeSettings:
-    smallestOccluder: 5
-    smallestHole: 0.25
+    smallestOccluder: 0.1
+    smallestHole: 0.01
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: c77c86fdfd2179b42a0600aadf3d3b7a
+  m_OcclusionCullingData: {fileID: 36300000, guid: e300aa4f787312b479d3c8ce8e89b47f,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -48,7 +49,7 @@ LightmapSettings:
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
-    m_IndirectOutputScale: 1
+    m_IndirectOutputScale: 1.25
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
@@ -56,15 +57,16 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
-    m_BakeResolution: 16
-    m_AtlasSize: 1024
-    m_AO: 0
-    m_AOMaxDistance: 1
+    m_BakeResolution: 64
+    m_AtlasSize: 4096
+    m_AO: 1
+    m_AOMaxDistance: 0.1
     m_CompAOExponent: 1
-    m_CompAOExponentDirect: 0
+    m_CompAOExponentDirect: 0.3
     m_ExtractAmbientOcclusion: 0
     m_Padding: 2
-    m_LightmapParameters: {fileID: 0}
+    m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000,
+      type: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 0
     m_FinalGather: 0
@@ -74,10 +76,10 @@ LightmapSettings:
     m_MixedBakeMode: 1
     m_BakeBackend: 1
     m_PVRSampling: 1
-    m_PVRDirectSampleCount: 16
-    m_PVRSampleCount: 256
+    m_PVRDirectSampleCount: 128
+    m_PVRSampleCount: 1024
     m_PVRBounces: 2
-    m_PVREnvironmentSampleCount: 128
+    m_PVREnvironmentSampleCount: 512
     m_PVREnvironmentReferencePointCount: 2048
     m_PVRFilteringMode: 1
     m_PVRDenoiserTypeDirect: 1
@@ -1107,7 +1109,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &243252362
 Transform:
@@ -1557,7 +1559,7 @@ ReflectionProbe:
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4407
+    m_Bits: 5431
   m_IntensityMultiplier: 1
   m_BlendDistance: 1
   m_HDR: 1
@@ -1743,6 +1745,10 @@ PrefabInstance:
     - target: {fileID: 1600644407031526, guid: f0ca9997b84d14c44bdfaec786a3ff97, type: 3}
       propertyPath: m_Layer
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600644407031526, guid: f0ca9997b84d14c44bdfaec786a3ff97, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4540305266946724, guid: f0ca9997b84d14c44bdfaec786a3ff97, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2093,7 +2099,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &463480189
 Transform:
@@ -2310,8 +2316,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 0
 --- !u!4 &519032386
 Transform:
   m_ObjectHideFlags: 0
@@ -3886,6 +3892,16 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -7538917321569466016, guid: 95bfd89b4f5598a45b04f36391bbe8c2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -7538917321569466016, guid: 95bfd89b4f5598a45b04f36391bbe8c2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: -7269341966636048781, guid: 95bfd89b4f5598a45b04f36391bbe8c2,
         type: 3}
       propertyPath: m_CastShadows
@@ -4255,16 +4271,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 31.05511
-      objectReference: {fileID: 0}
-    - target: {fileID: -7538917321569466016, guid: 95bfd89b4f5598a45b04f36391bbe8c2,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 30.4
-      objectReference: {fileID: 0}
-    - target: {fileID: -7538917321569466016, guid: 95bfd89b4f5598a45b04f36391bbe8c2,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95bfd89b4f5598a45b04f36391bbe8c2, type: 3}
@@ -4742,7 +4748,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1095149332
 Transform:
@@ -5015,6 +5021,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1482000159135372, guid: 24ee385f3ed23464593fab8f61b3a1b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4157320263911096, guid: 24ee385f3ed23464593fab8f61b3a1b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5062,6 +5072,11 @@ PrefabInstance:
     - target: {fileID: 4157320263911096, guid: 24ee385f3ed23464593fab8f61b3a1b2, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 23137555907134406, guid: 24ee385f3ed23464593fab8f61b3a1b2,
+        type: 3}
+      propertyPath: m_ReflectionProbeUsage
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24ee385f3ed23464593fab8f61b3a1b2, type: 3}
@@ -5369,8 +5384,8 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 0
 --- !u!4 &1518127733
 Transform:
   m_ObjectHideFlags: 0

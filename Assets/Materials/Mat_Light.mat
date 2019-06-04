@@ -77,8 +77,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 1, g: 1, b: 1, a: 0}
+    - _EmissionColor: {r: 1.7814789, g: 1.7814789, b: 1.7814789, a: 1}
+    - _SpecColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &5330468495758848700
 MonoBehaviour:
   m_ObjectHideFlags: 11
