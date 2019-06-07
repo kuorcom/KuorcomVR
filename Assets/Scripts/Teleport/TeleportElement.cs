@@ -5,6 +5,7 @@ using UnityEngine;
 public class TeleportElement : MonoBehaviour
 {
     public Transform teleportPoint;
+    public Vector3 playerTeleportOffset = new Vector3(0, 1.7f);
     Transform playerTransform;
     Fader fader;
 
@@ -23,7 +24,7 @@ public class TeleportElement : MonoBehaviour
 
     public void TeleportViewer()
     {
-        playerTransform.position = teleportPoint.position;
+        playerTransform.position = teleportPoint.position + playerTeleportOffset;
     }
 
     public IEnumerator TeleportCoroutine()
