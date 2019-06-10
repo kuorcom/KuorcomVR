@@ -9,12 +9,15 @@ public class ControllerPointer : MonoBehaviour
     public Transform pointerOrigin;
     LineRenderer lineRenderer;
     public Gradient initGradient;
+    [Space(5)]
+    public SpriteRenderer pointerSprite;
+    public static bool canTeleport = true;
 
     [Header("Teleport")]
     public LayerMask teleportMask;
     public Gradient teleportGradient;
     public float teleportRayMaxDistance = 10.0f;
-    public bool canTeleport = true, isTeleport = false;
+    public bool isTeleport = false;
     TeleportElement teleportElement;
     RaycastHit teleportHit;
 
@@ -26,9 +29,14 @@ public class ControllerPointer : MonoBehaviour
     InteractionElement interactionElement;
     RaycastHit interactionHit;
 
+    [Header("Audio")]
+    AudioSource audioSource;
+    public AudioClip clickClip, teleportClip;
+
     private void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -46,13 +54,16 @@ public class ControllerPointer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isTeleport)
+        if(isTeleport && canTeleport)
         {
             if(Input.GetMouseButtonDown(0))
             {
                 teleportElement = teleportHit.transform.GetComponent<TeleportElement>();
                 teleportElement.Teleport();
+                audioSource.PlayOneShot(teleportClip);
             }
+            //
+            pointerSprite.gameObject.SetActive(true);
         }
         else if(isInteract)
         {
@@ -60,11 +71,15 @@ public class ControllerPointer : MonoBehaviour
             {
                 interactionElement = interactionHit.transform.GetComponent<InteractionElement>();
                 interactionElement.Interaction1();
+                audioSource.PlayOneShot(clickClip);
             }
+            //
+            pointerSprite.gameObject.SetActive(true);
         }
         else
         {
             ResetLine();
+            pointerSprite.gameObject.SetActive(false);
         }
     }
 
@@ -83,6 +98,7 @@ public class ControllerPointer : MonoBehaviour
             isTeleport = true;
             ColorLine(teleportGradient);
             PositionLinePoints(teleportHit.point);
+            RotatePointer(teleportHit.normal);
         }
         else
         {
@@ -97,6 +113,7 @@ public class ControllerPointer : MonoBehaviour
             isInteract = true;
             ColorLine(interactionGradient);
             PositionLinePoints(interactionHit.point);
+            RotatePointer(interactionHit.normal);
         }
         else
         {
@@ -112,18 +129,39 @@ public class ControllerPointer : MonoBehaviour
     public void ColorLine(Gradient colorGradient)
     {
         lineRenderer.colorGradient = colorGradient;
+        ColorPointer(colorGradient.colorKeys[0].color);
     }
 
     public void PositionLinePoints(Vector3 hitPoint)
     {
         lineRenderer.SetPosition(0, pointerOrigin.position);
         lineRenderer.SetPosition(1, hitPoint);
+        //
+        PositionPointer(hitPoint);
     }
 
     public void ResetLine()
     {
         PositionLinePoints(pointerOrigin.position + pointerOrigin.forward);
         ColorLine(initGradient);
+    }
+
+    #endregion
+
+    #region Pointer Sprite
+
+    public void PositionPointer(Vector3 position)
+    {
+        pointerSprite.transform.position = position;
+    }
+    public void RotatePointer(Vector3 normalDir)
+    {
+        pointerSprite.transform.rotation = Quaternion.FromToRotation(pointerSprite.transform.up, normalDir);
+    }
+
+    public void ColorPointer(Color pointerColor)
+    {
+        pointerSprite.color = pointerColor;
     }
 
     #endregion

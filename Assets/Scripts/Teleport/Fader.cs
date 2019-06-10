@@ -6,6 +6,7 @@ public class Fader : MonoBehaviour
 {
     Material faderMaterial;
     public float fadeTime = 1.0f;
+    public AnimationCurve fadeInCurve, fadeOutCurve;
     public Color fadeOutColor, fadeInColor;
 
     // Start is called before the first frame update
@@ -27,24 +28,31 @@ public class Fader : MonoBehaviour
     public IEnumerator FaderCoroutine(bool fadeOut)
     {
         float timeHelper = 0.0f;
-        float timeAdder = fadeTime / (fadeTime * 60);
         Color initColor = faderMaterial.GetColor("_BaseColor");
         if (fadeOut)
         {
-            while (timeHelper < 1)
+            while (timeHelper < fadeTime)
             {
-                faderMaterial.SetColor("_BaseColor", Color.Lerp(initColor, fadeOutColor, timeHelper));
-                timeHelper += timeAdder;
-                yield return new WaitForSeconds(timeAdder);
+                timeHelper += Time.deltaTime;
+                if(timeHelper > fadeTime)
+                {
+                    timeHelper = fadeTime;
+                }
+                yield return null;
+                faderMaterial.SetColor("_BaseColor", Color.Lerp(initColor, fadeOutColor, fadeOutCurve.Evaluate(timeHelper / fadeTime)));
             }
         }
         else
         {
-            while (timeHelper < 1)
+            while (timeHelper < fadeTime)
             {
-                faderMaterial.SetColor("_BaseColor", Color.Lerp(initColor, fadeInColor, timeHelper));
-                timeHelper += timeAdder;
-                yield return new WaitForSeconds(timeAdder);
+                timeHelper += Time.deltaTime;
+                if (timeHelper > fadeTime)
+                {
+                    timeHelper = fadeTime;
+                }
+                yield return null;
+                faderMaterial.SetColor("_BaseColor", Color.Lerp(initColor, fadeInColor, fadeInCurve.Evaluate(timeHelper / fadeTime)));
             }
         }
     }

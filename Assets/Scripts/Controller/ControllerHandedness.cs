@@ -6,6 +6,8 @@ public class ControllerHandedness : MonoBehaviour
 {
     public GameObject leftHandContainer, rightHandContainer;
 
+#if (!UNITY_EDITOR)
+
     void Start()
     {
         DetectHandedness();
@@ -71,4 +73,7 @@ public class ControllerHandedness : MonoBehaviour
             return false;
         }
     }
+
+#endif
+
 }

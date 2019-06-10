@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!4 &1702888417606450563
 Transform:
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportPoint: {fileID: 38362701492259420}
+  playerTeleportOffset: {x: 0, y: 1.7, z: 0}
 --- !u!1 &2942553819118417718
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +85,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!4 &38362701492259420
 Transform:
@@ -117,6 +118,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 837a6f4bcee0f384eb93ec6f24a79d53,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 837a6f4bcee0f384eb93ec6f24a79d53,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -125,7 +131,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 837a6f4bcee0f384eb93ec6f24a79d53,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 837a6f4bcee0f384eb93ec6f24a79d53,
         type: 3}
