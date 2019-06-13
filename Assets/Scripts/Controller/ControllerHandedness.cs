@@ -13,12 +13,7 @@ public class ControllerHandedness : MonoBehaviour
         DetectHandedness();
     }
 
-    private void OnApplicationFocus(bool focus)
-    {
-        DetectHandedness();
-    }
-
-    private void OnApplicationPause(bool pause)
+    private void Update()
     {
         DetectHandedness();
     }
