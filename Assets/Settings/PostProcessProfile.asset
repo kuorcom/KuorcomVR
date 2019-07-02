@@ -80,7 +80,7 @@ MonoBehaviour:
     value: 1
   gradingMode:
     overrideState: 1
-    value: 1
+    value: 0
   externalLut:
     overrideState: 0
     value: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
     overrideState: 0
     value: 43
   saturation:
-    overrideState: 0
+    overrideState: 1
     value: 5
   brightness:
     overrideState: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
     value: 0.5
   contrast:
     overrideState: 1
-    value: 5
+    value: 10
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
